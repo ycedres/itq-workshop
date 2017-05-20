@@ -16,14 +16,17 @@ t = irisTargets;
 % 'trainbr' takes longer but may be better for challenging problems.
 % 'trainscg' uses less memory. Suitable in low memory situations.
 % 'trainscg';  % Scaled conjugate gradient backpropagation.
-trainFcn = 'trainscg';
+%trainFcn = 'trainscg';
+% https://es.mathworks.com/help/nnet/ref/traingd.html
+trainFcn = 'traingd';
 % Create a Pattern Recognition Network
 hiddenLayerSize = [10,10];
 net = patternnet(hiddenLayerSize, trainFcn);
 net.trainParam.showWindow=0;
+net.trainParam.lr=0.02;
 % Setup Division of Data for Training, Validation, Testing
-net.divideFcn='divideblock';
-net.divideParam.trainRatio = 80/100;
+%net.divideFcn='divideblock';
+net.divideParam.trainRatio = 70/100;
 net.divideParam.valRatio = 15/100;
 net.divideParam.testRatio = 15/100;
 
