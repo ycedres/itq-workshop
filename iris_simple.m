@@ -20,7 +20,7 @@ trainFcn = 'trainscg';  % Scaled conjugate gradient backpropagation.
 % Create a Pattern Recognition Network
 hiddenLayerSize = 10;
 net = patternnet(hiddenLayerSize, trainFcn);
-
+net.trainParam.showWindow=0;
 % Setup Division of Data for Training, Validation, Testing
 net.divideParam.trainRatio = 70/100;
 net.divideParam.valRatio = 15/100;
@@ -38,15 +38,15 @@ performance = perform(net,t,y) % net.performFcn = 'crossentropy'
 tind = vec2ind(t); 
 yind = vec2ind(y);
 percentErrors = sum(tind ~= yind)/numel(tind);
-accuracy = 100-(percentErrors*100);
+accuracy = 100-(percentErrors*100)
 % View the Network
 %view(net)
 
 % Plots
 % Uncomment these lines to enable various plots.
-%figure, plotperform(tr)
-%figure, plottrainstate(tr)
-%figure, ploterrhist(e)
-%figure, plotconfusion(t,y)
-%figure, plotroc(t,y)
+figure, plotperform(tr)
+figure, plottrainstate(tr)
+figure, ploterrhist(e)
+figure, plotconfusion(t,y)
+figure, plotroc(t,y)
 
