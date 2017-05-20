@@ -49,4 +49,3 @@ figure, plottrainstate(tr)
 figure, ploterrhist(e)
 figure, plotconfusion(t,y)
 figure, plotroc(t,y)
-
