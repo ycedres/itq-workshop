@@ -1,6 +1,6 @@
 function [flor] = obtener_ejemplar()
-load iris_dataset.mat
-caracteristicas=irisInputs;
+caracteristicas=evalin('base','caracteristicas');
+info_entrenamiento=evalin('base','info_entrenamiento');
 floresNuevas=caracteristicas(:,info_entrenamiento.testInd);
-flor=floresNuevas(randi(23));
+flor=floresNuevas(:,randi(23));
 end
