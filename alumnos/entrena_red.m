@@ -1,6 +1,6 @@
 function [red_entrenada,info_entrenamiento] = entrena_red(net,caracteristicas,clasificacion)
 
-net.trainParam.showWindow=1;
+net.trainParam.showWindow=0;
 %net.trainParam.lr = 0.01;
 net.trainParam.epochs = 10000;
 
